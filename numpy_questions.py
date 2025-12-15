@@ -85,4 +85,3 @@ def wallis_product(n_terms):
         product *= num_prod / denom_prod
         n_terms -= 1
     return 2 * product
-
