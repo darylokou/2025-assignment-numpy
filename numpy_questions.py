@@ -40,7 +40,7 @@ def max_index(X):
     i = 0
     j = 0
 
-    if X is not np.ndarray:
+    if type(X) is not np.ndarray:
         raise ValueError("The input is not a numpy array")
     elif X.ndim != 2:
         raise ValueError("The shape is not 2D")
@@ -78,14 +78,11 @@ def wallis_product(n_terms):
 
     # Iterative implementation of the Wallis product
     product = 1.0
-    n = n_terms
-    while (n > 0):
-        n_times_2 = 2 * n
+    while (n_terms > 0):
+        n_times_2 = 2 * n_terms
         num_prod = (n_times_2)**2
         denom_prod = (n_times_2 - 1) * (n_times_2 + 1)
         product *= num_prod / denom_prod
-        n -= 1
-    if n_terms > 0:
-        return 2 * product
-    else:
-        return product
+        n_terms -= 1
+    return 2 * product
+
